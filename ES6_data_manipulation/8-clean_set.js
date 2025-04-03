@@ -8,4 +8,4 @@ export default function cleanSet(set, startString) {
     .map((value) => value.slice(startString.length));
 
   return filteredValues.join('-');
-} 
+}
