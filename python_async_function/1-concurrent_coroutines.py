@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """
-This module contains an async function that runs multiple coroutines concurrently.
+This module contains an async function that runs
+ multiple coroutines concurrently.
 """
 
 
