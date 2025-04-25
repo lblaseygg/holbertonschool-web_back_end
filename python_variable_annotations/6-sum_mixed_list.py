@@ -4,8 +4,17 @@ This module provides a function to sum a list of mixed integers and floats.
 """
 
 
-def sum_mixed_list(mxd_lst: int, float) -> float:
+from typing import List, Union
+
+
+def sum_mixed_list(mxd_lst: List[Union[int, float]]) -> float:
     """
-    Sum a list of mixed integers and floats
+    Calculate the sum of a list of mixed integers and floats
+
+    Args:
+        mxd_lst (List[Union[int, float]]): The list of mixed integers and floats to sum
+
+    Returns:
+        float: The sum of the list of mixed integers and floats
     """
-    return sum(mxd_lst)
+    return float(sum(mxd_lst))
