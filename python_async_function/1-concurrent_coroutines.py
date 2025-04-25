@@ -7,7 +7,7 @@ This module contains an async function that runs
 
 import asyncio
 from typing import List
-from 0-basic_async_syntax import wait_random
+from basic_async_syntax import wait_random
 
 
 async def wait_n(n: int, max_delay: int) -> List[float]:
