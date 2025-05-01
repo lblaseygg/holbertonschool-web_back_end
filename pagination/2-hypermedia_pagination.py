@@ -2,6 +2,8 @@
 """
 Module for hypermedia pagination implementation with a Server class
 """
+
+
 import csv
 import math
 from typing import List, Tuple, Dict, Any
