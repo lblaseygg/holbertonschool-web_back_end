@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Module for async comprehension demonstration.
+Module that demonstrates the use of async comprehensions to collect random numbers.
 """
 from typing import List
 from 0-async_generator import async_generator
