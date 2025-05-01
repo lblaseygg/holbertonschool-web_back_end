@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """
 Module that measures the runtime of parallel async comprehensions.
+This module provides a coroutine that measures the execution time of parallel async comprehensions.
 """
 import asyncio
 import time

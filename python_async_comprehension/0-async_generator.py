@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """
 Module that defines an asynchronous generator for generating random numbers.
+This module provides a coroutine that yields random numbers asynchronously.
 """
 import asyncio
 import random
