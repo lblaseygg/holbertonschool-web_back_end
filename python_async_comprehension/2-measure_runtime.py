@@ -4,6 +4,7 @@ Module that measures the runtime of parallel async comprehensions.
 """
 import asyncio
 import time
+from typing import float
 from 1-async_comprehension import async_comprehension
 
 
