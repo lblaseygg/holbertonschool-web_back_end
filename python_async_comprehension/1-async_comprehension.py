@@ -10,7 +10,7 @@ from 0-async_generator import async_generator
 async def async_comprehension() -> List[float]:
     """
     Coroutine that collects 10 random numbers using an async comprehension
-    over async_generator.
+    over async_generator. It asynchronously iterates over the generator
+    to collect exactly 10 random numbers between 0 and 10.
     """
-    return [i async for i in async_generator()]
- 
+    return [number async for number in async_generator()]
