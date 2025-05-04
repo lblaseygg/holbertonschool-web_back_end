@@ -14,18 +14,18 @@ def log_stats():
     logs = client.logs.nginx
 
     # Total number of logs
-    total_logs = logs.count_documents({})
+    total_logs = logs.count()
     print(f"{total_logs} logs")
 
     # Methods
     print("Methods:")
     methods = ["GET", "POST", "PUT", "PATCH", "DELETE"]
     for method in methods:
-        count = logs.count_documents({"method": method})
+        count = logs.count({"method": method})
         print(f"\tmethod {method}: {count}")
 
     # Status check
-    status_check = logs.count_documents({"method": "GET", "path": "/status"})
+    status_check = logs.count({"method": "GET", "path": "/status"})
     print(f"{status_check} status check")
 
 
