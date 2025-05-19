@@ -1,9 +1,10 @@
 /**
- * Displays a message on the STDOUT
+ * Function that displays a message on the standard output
  * @param {string} message - The message to display
+ * @return {void}
  */
-function displayMessage(message) {
-    console.log(message);
-  }
+const displayMessage = (message) => {
+    process.stdout.write(message + '\n');
+  };
   
   module.exports = displayMessage;
