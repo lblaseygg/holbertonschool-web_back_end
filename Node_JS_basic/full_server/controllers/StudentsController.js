@@ -1,30 +1,49 @@
-const readDatabase = require('../utils');
+import readDatabase from '../utils';
 
 class StudentsController {
-  static getAllStudents(req, res) {
-    readDatabase(process.argv[2])
+  static getAllStudents(request, response, DATABASE) {
+    readDatabase(DATABASE)
       .then((fields) => {
-        res.status(200).send(`This is the list of our students\nNumber of students: ${Object.values(fields).reduce((acc, curr) => acc + curr.length, 0)}\n${Object.entries(fields).map(([field, names]) => `Number of students in ${field}: ${names.length}. List: ${names.join(', ')}`).join('\n')}`);
+        const students = [];
+        // let count = 0;
+        let msg;
+
+        // for (const key of Object.keys(fields)) {
+        //   count += fields[key].length;
+        // }
+
+        // students.push(`Number of students: ${count}`);
+        students.push('This is the list of our students');
+
+        for (const key of Object.keys(fields)) {
+          msg = `Number of students in ${key}: ${
+            fields[key].length
+          }. List: ${fields[key].join(', ')}`;
+
+          students.push(msg);
+        }
+        response.send(200, `${students.join('\n')}`);
       })
-      .catch((err) => {
-        res.status(500).send(err.message);
+      .catch(() => {
+        response.send(500, 'Cannot load the database');
       });
   }
 
-  static getAllStudentsByMajor(req, res) {
-    const { major } = req.params;
+  static getAllStudentsByMajor(request, response, DATABASE) {
+    const { major } = request.params;
+
     if (major !== 'CS' && major !== 'SWE') {
-      res.status(500).send('Major parameter must be CS or SWE');
-      return;
+      response.send(500, 'Major parameter must be CS or SWE');
+    } else {
+      readDatabase(DATABASE)
+        .then((fields) => {
+          const students = fields[major];
+
+          response.send(200, `List: ${students.join(', ')}`);
+        })
+        .catch(() => response.send(500, 'Cannot load the database'));
     }
-    readDatabase(process.argv[2])
-      .then((fields) => {
-        res.status(200).send(`List: ${fields[major].join(', ')}`);
-      })
-      .catch((err) => {
-        res.status(500).send(err.message);
-      });
   }
 }
 
-module.exports = StudentsController; 
+export default StudentsController;
