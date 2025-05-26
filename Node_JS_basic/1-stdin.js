@@ -8,7 +8,7 @@ process.stdin.setEncoding('utf8');
 process.stdin.on('data', (chunk) => {
   // Remove newline character and display the name
   const name = chunk.toString().trim();
-  process.stdout.write(`Your name is: ${name}\n`);
+  process.stdout.write(`Your name is: ${name}\r`);
 });
 
 // Handle stdin end event (when input stream is closed)
