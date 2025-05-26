@@ -10,7 +10,7 @@ process.stdin.on('readable', () => {
   if (chunk !== null) {
     // Remove newline character and display the name
     const name = chunk.toString().trim();
-    process.stdout.write(`Your name is: ${name}\n`);
+    process.stdout.write(`Your name is: ${name}\r`);
   }
 });
 
